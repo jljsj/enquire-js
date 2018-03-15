@@ -15,7 +15,7 @@ if (typeof window !== 'undefined') {
 }
 
 export function enquireScreen(cb, str) {
-  if (!enquire) {
+  if (!enquireJs) {
     return;
   }
   enquireJs.register(str || 'only screen and (max-width: 767.99px)', {
