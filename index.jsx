@@ -18,14 +18,23 @@ export function enquireScreen(cb, str) {
   if (!enquireJs) {
     return;
   }
-  enquireJs.register(str || 'only screen and (max-width: 767.99px)', {
+
+  const query = str || 'only screen and (max-width: 767.99px)';
+
+  const handler = {
     match: () => {
       cb && cb(true);
     },
     unmatch: () => {
       cb && cb();
     },
-  });
+  };
+
+  enquireJs.register(query, handler);
+
+  return function () {
+    enquireJs.unregister(query, handler);
+  }
 }
 
 export const enquire = enquireJs;
