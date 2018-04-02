@@ -14,12 +14,12 @@ if (typeof window !== 'undefined') {
   enquireJs = require('enquire.js');
 }
 
-export function enquireScreen(cb, str) {
+const mobileQuery = 'only screen and (max-width: 767.99px)';
+
+export function enquireScreen(cb, query = mobileQuery) {
   if (!enquireJs) {
     return;
   }
-
-  const query = str || 'only screen and (max-width: 767.99px)';
 
   const handler = {
     match: () => {
@@ -29,12 +29,15 @@ export function enquireScreen(cb, str) {
       cb && cb();
     },
   };
-
   enquireJs.register(query, handler);
-
-  return function () {
-    enquireJs.unregister(query, handler);
-  }
+  return handler;
 }
 
-export const enquire = enquireJs;
+export function unenquireScreen(query = mobileQuery, handler) {
+  if (!enquireJs) {
+    return;
+  }
+  enquireJs.unregister(query, handler);
+}
+
+export default enquireJs;
