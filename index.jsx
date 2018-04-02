@@ -33,7 +33,7 @@ export function enquireScreen(cb, query = mobileQuery) {
   return handler;
 }
 
-export function unenquireScreen(query = mobileQuery, handler) {
+export function unenquireScreen(handler, query = mobileQuery) {
   if (!enquireJs) {
     return;
   }

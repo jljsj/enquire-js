@@ -1,6 +1,6 @@
 {
   "name": "enquire-js",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "avoid server-side rendering errors.",
   "main": "main.js",
   "scripts": {
