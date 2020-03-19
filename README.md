@@ -9,7 +9,7 @@
 | cb  | func     | null    | 回调接口, cb(bool),  bool 为 true 为 mobile  |
 | query | string | `only screen and (max-width: 767.99px)` | css 的场景判断 |
 
-### unenquireScrenn(handler, query);
+### unenquireScreen(handler, query);
 
 | name       |type            |default  |description     |
 |------------|----------------|---------|----------------|
